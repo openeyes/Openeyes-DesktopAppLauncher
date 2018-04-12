@@ -36,6 +36,6 @@ IF "%p1%" equ "complog" (
 start "" "C:\Program Files (x86)\COMPlog\COMPlog\Complog.exe"
 goto exit
 )
-echo "command not implemented"
+echo OELauncher: command '%p1%' not implemented
 
 :exit
