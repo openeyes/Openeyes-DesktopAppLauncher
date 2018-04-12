@@ -1,6 +1,7 @@
 @echo off
 
 REM This file is used by OpenEyes to launch external applications (e.g, Zeiss FORUM)
+REM Note, to launch a command and close the console window, use start "" "<command>"
 
 
 REM strip off the text "oelauncher:" from the first parameter
@@ -32,7 +33,7 @@ pause
 goto exit
 )
 IF "%p1%" equ "complog" (
-"C:\Program Files (x86)\COMPlog\COMPlog\Complog.exe"
+start "" "C:\Program Files (x86)\COMPlog\COMPlog\Complog.exe"
 goto exit
 )
 echo "command not implemented"
