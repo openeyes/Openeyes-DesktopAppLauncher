@@ -27,7 +27,7 @@ IF "%p1%" equ "forum" (
 "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2%
 goto exit
 )
-IF "%p1%" equ "cirrus" ( 
+IF "%p1%" equ "cirrus" (
 echo "comand not implemented"
 pause
 goto exit
@@ -37,5 +37,6 @@ start "" "C:\Program Files (x86)\COMPlog\COMPlog\Complog.exe"
 goto exit
 )
 echo OELauncher: command '%p1%' not implemented
+pause
 
 :exit
