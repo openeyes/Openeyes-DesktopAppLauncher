@@ -20,23 +20,29 @@ for /f "tokens=1,2,3,4 delims=/ " %%a in ("%arg1%") do set p1=%%a&set p2=%%b&set
 
 
 REM Process command using p1 as identifier
-REM This can be extended by adding more IF statements for p1
+REM This can be extended by adding more CASE statements for p1
 
 
-IF "%p1%" equ "forum" (
-"C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2%
-goto exit
-)
-IF "%p1%" equ "cirrus" (
-echo "comand not implemented"
-pause
-goto exit
-)
-IF "%p1%" equ "complog" (
-start "" "C:\Program Files (x86)\COMPlog\COMPlog\Complog.exe"
-goto exit
-)
-echo OELauncher: command '%p1%' not implemented
-pause
+CALL :CASE_%p1% # jump to :CASE_command
+IF ERRORLEVEL 1 CALL :DEFAULT_CASE # if label doesn't exist
 
-:exit
+EXIT /B
+
+:CASE_forum
+  "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2%
+  GOTO END_CASE
+:CASE_forumsop
+  "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -sopInstanceUid %p2%
+  GOTO END_CASE
+:CASE_forumdate
+  "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2% -examDate %p3%
+  GOTO END_CASE
+:CASE_complog
+  start "" "C:\Program Files (x86)\COMPlog\COMPlog\Complog.exe"
+  GOTO END_CASE
+:DEFAULT_CASE
+  ECHO OELauncher:- Unknown command: "%p1%"
+  GOTO END_CASE
+:END_CASE
+  VER > NUL # reset ERRORLEVEL
+  GOTO :EOF # return from CALL

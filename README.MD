@@ -31,13 +31,12 @@ The DesktopAppLauncher ships with default paths to the applications that it know
 
 EXTENDING
 =========
-If you wish to add more applications to the known list of apps that the DesktopAppLauncher can handle, then this can be acheived by adding new IF blocks to "_C:\Program Files\openeyes-DesktopAppLauncher\oelauncher.cmd_". E.g,
+If you wish to add more applications to the known list of apps that the DesktopAppLauncher can handle, then this can be acheived by adding new CASE blocks to "_C:\Program Files\openeyes-DesktopAppLauncher\oelauncher.cmd_". E.g,
 
 ```
-IF "%p1%" equ "NewAppName" (
-"C:\Program Files\NewApp Folder\NewApp.exe" -commandlineparameter %p2%
-goto exit
-)
+:CASE_NewAppName
+    "C:\Program Files\NewApp Folder\NewApp.exe" -commandlineparameter1 %p2% -commandlineparameter2 %p3%
+    GOTO END_CASE
 ```
 
 FUTURE DIRECTION
