@@ -23,26 +23,24 @@ REM Process command using p1 as identifier
 REM This can be extended by adding more CASE statements for p1
 
 
-CALL :CASE_%p1% # jump to :CASE_command
-IF ERRORLEVEL 1 CALL :DEFAULT_CASE # if label doesn't exist
 
-EXIT /B
+IF "%p1%" equ "forum" (
+    "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2%
+    goto exit
+) ELSE IF "%p1%" equ "forumsop" (
+    "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -sopInstanceUid %p2%
+    goto exit
+) ELSE IF "%p1%" equ "forumdate" (
+    "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2% -examDate %p3%
+    goto exit
+) ELSE IF "%p1%" equ "complog" (
+    start "" "C:\Program Files (x86)\COMPlog\COMPlog\Complog.exe"
+    goto exit
+) ELSE (
+    ECHO OELauncher:- Unknown command: "%p1%"
+    pause
+    goto exit
+)
 
-:CASE_forum
-  "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2%
-  GOTO END_CASE
-:CASE_forumsop
-  "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -sopInstanceUid %p2%
-  GOTO END_CASE
-:CASE_forumdate
-  "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2% -examDate %p3%
-  GOTO END_CASE
-:CASE_complog
-  start "" "C:\Program Files (x86)\COMPlog\COMPlog\Complog.exe"
-  GOTO END_CASE
-:DEFAULT_CASE
-  ECHO OELauncher:- Unknown command: "%p1%"
-  GOTO END_CASE
-:END_CASE
-  VER > NUL # reset ERRORLEVEL
-  GOTO :EOF # return from CALL
+:exit
+exit /B
