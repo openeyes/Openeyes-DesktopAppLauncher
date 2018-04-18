@@ -20,7 +20,7 @@ for /f "tokens=1,2,3,4 delims=/ " %%a in ("%arg1%") do set p1=%%a&set p2=%%b&set
 
 
 REM Process command using p1 as identifier
-REM This can be extended by adding more CASE statements for p1
+REM This can be extended by adding more ELSE IF statements for p1
 
 
 
