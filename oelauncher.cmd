@@ -25,13 +25,13 @@ REM This can be extended by adding more ELSE IF statements for p1
 
 
 IF "%p1%" equ "forum" (
-    "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2%
+    "C:\PRogram Files\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2%
     goto exit
 ) ELSE IF "%p1%" equ "forumsop" (
-    "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -sopInstanceUid %p2%
+    "C:\Program Files\CZM\FORUM Viewer\api\launchFORUM.cmd" -sopInstanceUid %p2%
     goto exit
 ) ELSE IF "%p1%" equ "forumdate" (
-    "C:\Zeiss\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2% -examDate %p3%
+    "C:\Program Files\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2% -examDate %p3%
     goto exit
 ) ELSE IF "%p1%" equ "complog" (
     start "" "C:\Program Files (x86)\COMPlog\COMPlog\Complog.exe"
