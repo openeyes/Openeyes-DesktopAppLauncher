@@ -40,6 +40,43 @@ ELSE IF "%p1%" equ "NewApp" (
 )
 ```
 
+PREVENTING THE CHROME PROMPT
+============================
+
+Chrome will prompt the user to allow oelauncher.cmd to launch, with a checkbox to always allow for links of this type. Usually, if the user ticks the box and presses 'Allow' then they should not be asked again. However, it is possible to prevent this box from ever showing...
+
+This prompt is controlled by the chrome preferences file at %localappdata%\Google\Chrome\User Data\Default`
+
+In the section `"protocol_handler": {"excluded_schemes"}` key
+
+Setting the value for `oelauncher` to `false` will prevent the prompt from showing. e.g:
+
+```
+"protocol_handler":{"excluded_schemes":{
+	"afp":true,
+	"data":true,
+	"disk":true,
+	"disks":true,
+	"file":true,
+	"hcp":true,
+	"javascript":true,
+	"mailto":false,
+	"ms-help":true,
+	"news":false,
+	"nntp":true,
+-->  "oelauncher":false,  <--
+	"shell":true,
+	"snews":false,
+	"vbscript":true,
+	"view-source":true,
+	"vnd":{"ms":{"radio":true}}
+	}
+}
+```
+
+It should also be possible to set this key via group policy.
+
 FUTURE DIRECTION
 ================
 It is intended in the future to replace this utility with a more sophisticated .NET application that will have a proper installer and allow configurations of Apps and paths via a GUI.
+
