@@ -64,7 +64,7 @@ Setting the value for `oelauncher` to `false` will prevent the prompt from showi
 	"ms-help":true,
 	"news":false,
 	"nntp":true,
--->  "oelauncher":false,  <--
+***-->  "oelauncher":false,  <--***
 	"shell":true,
 	"snews":false,
 	"vbscript":true,
