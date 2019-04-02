@@ -78,5 +78,5 @@ It should also be possible to set this key via group policy.
 
 FUTURE DIRECTION
 ================
-It is intended in the future to replace this utility with a more sophisticated .NET application that will have a proper installer and allow configurations of Apps and paths via a GUI.
+It is intended in the future to replace this utility with a more sophisticated .NET application that will have a proper installer and allow configurations of Apps and paths via a GUI. However, this of course requires help from the Open Source community to dontae the necessary skills and time. There is currently no active work on this utility
 
