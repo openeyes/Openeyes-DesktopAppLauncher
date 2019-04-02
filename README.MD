@@ -74,7 +74,8 @@ Setting the value for `oelauncher` to `false` will prevent the prompt from showi
 }
 ```
 
-It should also be possible to set this key via group policy.
+It should also be possible to set this key via group policy or other centralised methods. This google article may provie some help: https://support.google.com/chrome/a/answer/187948?hl=en
+
 
 FUTURE DIRECTION
 ================
