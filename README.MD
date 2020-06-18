@@ -76,6 +76,13 @@ Setting the value for `oelauncher` to `false` will prevent the prompt from showi
 
 It should also be possible to set this key via group policy or other centralised methods. This google article may provie some help: https://support.google.com/chrome/a/answer/187948?hl=en
 
+## Chome 77+
+In Chrome 77, google made a change that forces the prompt for external applications to always show, which can be quite annoying. To restore the option for users to choose to 'always use this':
+* Add a `DWORD-value` named `ExternalProtocolDialogShowAlwaysOpenCheckbox` to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\` and set the value to `1`
+* Restart chrome
+* The "always use this" check box should now be available in the prompt.
+
+NOTE: This regisrty key can also be set via group policy
 
 FUTURE DIRECTION
 ================
