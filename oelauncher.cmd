@@ -36,6 +36,13 @@ IF "%p1%" equ "forum" (
     cd "C:\Program Files (x86)\COMPlog\COMPlog\"
     start "" "Complog.exe"
     goto exit
+)
+ELSE IF "%p1%" equ "imageNet" (
+    cd "C:\Topcon\"
+
+    (echo @VIEW& echo %p2%) > View.cmd
+    start "" "imagenet6view.bat"
+    goto exit
 ) ELSE (
     ECHO OELauncher:- Unknown command: "%p1%"
     pause
