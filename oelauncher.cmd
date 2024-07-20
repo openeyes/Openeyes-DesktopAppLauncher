@@ -24,13 +24,13 @@ REM This can be extended by adding more ELSE IF statements for p1
 
 
 IF "%p1%" equ "forum" (
-    "C:\Program Files\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2%
+    "C:\Program Files\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2%
     goto exit
 ) ELSE IF "%p1%" equ "forumsop" (
-    "C:\Program Files\CZM\FORUM Viewer\api\launchFORUM.cmd" -sopInstanceUid %p2%
+    "C:\Program Files\FORUM Viewer\api\launchFORUM.cmd" -sopInstanceUid %p2%
     goto exit
 ) ELSE IF "%p1%" equ "forumdate" (
-    "C:\Program Files\CZM\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2% -examDate %p3%
+    "C:\Program Files\FORUM Viewer\api\launchFORUM.cmd" -patientId %p2% -examDate %p3%
     goto exit
 ) ELSE IF "%p1%" equ "complog" (
     cd "C:\Program Files (x86)\COMPlog\COMPlog\"
@@ -38,10 +38,7 @@ IF "%p1%" equ "forum" (
     goto exit
 )
 ELSE IF "%p1%" equ "imageNet" (
-    cd "C:\Topcon\"
-
-    (echo @VIEW& echo %p2%) > View.cmd
-    start "" "imagenet6view.bat"
+    "C:\Program Files\Google\Chrome\Application\chrome.exe" http://rhmtopcon/IMAGEnet/Patient/%p2%
     goto exit
 ) ELSE (
     ECHO OELauncher:- Unknown command: "%p1%"
